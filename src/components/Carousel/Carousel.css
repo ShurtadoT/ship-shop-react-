@@ -1,0 +1,32 @@
+.slick-prev, .slick-next {
+  position: absolute;
+  font-size: 40rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo visible y semi-transparente */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  opacity: 1 !important;
+  visibility: visible !important;
+  cursor: pointer;
+  margin-left: -20px; /* Mover un poco las flechas para que se solapen ligeramente */
+}
+
+/* Ajustar para que las flechas estén una pegada a la otra y centradas */
+.slick-prev {
+  right: 100%; /* Posicionar en el centro horizontal */
+}
+
+.slick-next {
+  left: 100%; /* Posicionar en el centro horizontal */
+}
+
+.slick-slider {
+  position: relative;
+  overflow: hidden;
+  padding: 0 60px; /* Espacio para las flechas */
+}

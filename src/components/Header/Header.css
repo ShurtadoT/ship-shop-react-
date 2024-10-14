@@ -2,28 +2,29 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(344deg, rgba(40, 40, 55, 1) 0%, rgba(16, 16, 18, 1) 50%);
+  background: rgb(0, 0, 0);
+  transition: background-color 0.3s ease; 
+
   padding: 10px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
 }
 
 .nav-content {
   display: flex;
   justify-content: center;
-  /* Centrar contenido horizontalmente */
   align-items: center;
   width: 100%;
 }
 
-.cart-container{
+.cart-container {
   position: relative;
-  background-color: transparent ;
+  background-color: transparent;
   border: none;
   color: #fff;
   font-size: 20px;
   cursor: pointer;
   padding: 5px;
-  margin-left: 120px; /* Mueve el carrito a la izquierda */
+  margin-left: 120px; 
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
@@ -55,7 +56,6 @@ nav ul {
   margin: 0;
   display: flex;
   gap: 90px;
-  /* Aumentar el espaciado entre los elementos del menú */
 }
 
 nav li {
@@ -68,7 +68,6 @@ nav a {
   display: block;
   transition: color 0.3s ease, background-color 0.3s ease;
   text-decoration: none;
-  /* Eliminar subrayado */
 }
 
 nav a:hover,
@@ -77,7 +76,6 @@ nav a:focus {
   background-color: #ffffff;
   border-radius: 5px;
   text-decoration: none;
-  /* Asegurarse de eliminar el subrayado en hover y focus */
 }
 
 nav ul ul {
@@ -108,10 +106,9 @@ nav ul ul a:focus {
   background-color: #555555;
   color: #ffffff;
   text-decoration: none;
-  /* Asegurarse de eliminar el subrayado en hover y focus */
 }
 
-nav li:hover>ul {
+nav li:hover > ul {
   display: block;
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -126,12 +123,10 @@ nav li:hover>ul {
   }
 }
 
-/* CSS para el input */
 .input-container {
   position: relative;
   width: 250px;
   margin-left: 120px;
-  /* Ajustar según el espacio deseado entre el menú y el input */
   display: flex;
   align-items: center;
 }
@@ -145,8 +140,8 @@ nav li:hover>ul {
   background-color: transparent;
   outline: none;
   color: #fff;
-  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 }
 
 .input-container .label {
@@ -158,8 +153,8 @@ nav li:hover>ul {
   pointer-events: none;
 }
 
-.input-container input[type="text"]:focus~.label,
-.input-container input[type="text"]:valid~.label {
+.input-container input[type="text"]:focus ~ .label,
+.input-container input[type="text"]:valid ~ .label {
   top: -20px;
   font-size: 16px;
   color: #fff;
@@ -176,8 +171,8 @@ nav li:hover>ul {
   transition: all 0.3s ease;
 }
 
-.input-container input[type="text"]:focus~.underline,
-.input-container input[type="text"]:valid~.underline {
+.input-container input[type="text"]:focus ~ .underline,
+.input-container input[type="text"]:valid ~ .underline {
   transform: scaleX(1);
 }
 
@@ -189,7 +184,6 @@ nav li:hover>ul {
   cursor: pointer;
   padding: 5px;
   margin-left: 10px;
-  /* Espacio entre el input y el botón */
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
@@ -200,8 +194,6 @@ nav li:hover>ul {
   border-radius: 5px;
 }
 
-
-/* Encabezado */
 .intro {
   color: #ffffff;
   text-align: center;
@@ -212,13 +204,17 @@ nav li:hover>ul {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: #000;
   height: calc(100vh - 45px);
-
+  background-image: url("https://www.shutterstock.com/shutterstock/videos/3467105093/thumb/1.jpg?ip=x480"); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .intro h1 {
   font-size: 3em;
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -226,12 +222,13 @@ nav li:hover>ul {
 .intro h2 {
   font-size: 1.5em;
   margin: 10px 0 0 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   font-weight: 300;
 }
 
 .intro::after {
-  content: '';
+  content: "";
   display: block;
   width: 100px;
   height: 4px;

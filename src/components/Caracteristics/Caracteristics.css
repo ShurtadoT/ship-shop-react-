@@ -1,0 +1,41 @@
+.caracteristicas-nasa, .caracteristicas-spacex {
+    display: flex;
+    flex-direction: row; /* Disposición horizontal */
+    justify-content: center; /* Centra las tarjetas */
+    align-items: flex-start; /* Alinea las tarjetas en la parte superior */
+    gap: 20px; /* Espacio entre las tarjetas */
+    padding: 40px;
+  }
+  
+  .tarjeta {
+    display: flex;
+    flex-direction: column; /* Elementos internos siguen alineados verticalmente */
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .tarjeta:hover {
+    transform: scale(1.05); /* Agranda la tarjeta un 5% al pasar el mouse */
+  }
+  
+  .icono {
+    height: 50px;
+    margin-bottom: 10px;
+    /* Personaliza el tamaño y la ubicación del ícono */
+  }
+  
+  h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .c-description {
+    font-size: 14px;
+    color: #989898;
+  }
+  

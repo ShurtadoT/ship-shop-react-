@@ -2,54 +2,32 @@
 import React, { useEffect, useState } from 'react';
 import Carousel from '../Carousel/Carousel';
 import productsData from '../../data/products.json';
-
+import CaracNasa from '../Caracteristics/CaracNasa';
+import CaracSpaceX from '../Caracteristics/CaracSpaceX';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     setProducts(productsData);
+    console.log("Productos cargados: ", productsData); // Verifica que los productos están cargados
   }, []);
 
-  // Filtrar productos por tipo de nave
   const spaceXProducts = products.filter(product => product.tipoNave === 'SpaceX');
   const nasaProducts = products.filter(product => product.tipoNave === 'NASA');
 
-  // Configuración del carrusel
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  };
+  console.log("Productos SpaceX: ", spaceXProducts); // Verifica que los productos SpaceX se filtran correctamente
+  console.log("Productos NASA: ", nasaProducts);     // Verifica que los productos NASA se filtran correctamente
 
   return (
-    <section className='products'>
-      <h2 className='products-title'>Naves de SpaceX</h2>
-      <Carousel products={spaceXProducts} settings={settings} />
+    <section id='productos' className='products'>
+      <h2 id='product-type' className='products-title'>Naves de SpaceX</h2>
+      <Carousel products={spaceXProducts} />
+      <CaracNasa/>
 
-      <h2 className='products-title'>Naves de NASA</h2>
-      <Carousel products={nasaProducts} settings={settings} />
+      <h2 id='product-type' className='products-title'>Naves de NASA</h2>
+      <Carousel products={nasaProducts} />
+      <CaracSpaceX/>
     </section>
   );
 };

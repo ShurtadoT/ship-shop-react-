@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'; // Importamos el componente Home
 import Header from './components/Header/Header'; 
+import Footer from './components/Footer/Footer';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
@@ -10,7 +11,6 @@ function App() {
   return (
     <Router>
       <div>
-        {/* Puedes colocar el Header aquí si es común en todas las rutas */}
         <Header />
 
         {/* Configuración de rutas */}
@@ -21,6 +21,8 @@ function App() {
           {/* Otras rutas que puedas agregar en el futuro */}
           {/* <Route path="/about" element={<About />} /> */}
         </Routes>
+
+        <Footer/>
       </div>
     </Router>
   );

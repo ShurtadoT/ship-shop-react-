@@ -1,23 +1,22 @@
-// Products.jsx
 import React, { useEffect, useState } from 'react';
 import Carousel from '../Carousel/Carousel';
-import productsData from '../../data/products.json';
+import productsData from '../../services/products.json';
 import CaracNasa from '../Caracteristics/CaracNasa';
 import CaracSpaceX from '../Caracteristics/CaracSpaceX';
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const [spaceXProducts, setSpaceXProducts] = useState([]);
+  const [nasaProducts, setNasaProducts] = useState([]);
 
   useEffect(() => {
-    setProducts(productsData);
+    // Filtramos los productos en el useEffect solo una vez al cargar
+    const spaceX = productsData.filter(product => product.tipoNave === 'SpaceX');
+    const nasa = productsData.filter(product => product.tipoNave === 'NASA');
+    setSpaceXProducts(spaceX);
+    setNasaProducts(nasa);
+
     console.log("Productos cargados: ", productsData); // Verifica que los productos están cargados
-  }, []);
-
-  const spaceXProducts = products.filter(product => product.tipoNave === 'SpaceX');
-  const nasaProducts = products.filter(product => product.tipoNave === 'NASA');
-
-  console.log("Productos SpaceX: ", spaceXProducts); // Verifica que los productos SpaceX se filtran correctamente
-  console.log("Productos NASA: ", nasaProducts);     // Verifica que los productos NASA se filtran correctamente
+  }, []); // Dependencias vacías para ejecutarlo solo una vez
 
   return (
     <section id='productos' className='products'>

@@ -31,7 +31,7 @@ const CaracSpaceX = () => {
       {caracteristicasSpaceX.map((caracteristica, index) => (
         <div className="tarjeta" key={index}>
           <div className="icono">{caracteristica.icono}</div>
-          <h3>{caracteristica.titulo}</h3>
+          <h3 className='c-title'>{caracteristica.titulo}</h3>
           <p className='c-description'>{caracteristica.descripcion}</p>
         </div>
       ))}

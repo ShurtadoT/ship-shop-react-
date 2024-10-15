@@ -19,7 +19,7 @@
 }
 
 .product-slider-item {
-  flex: 1 0 calc(100% / 4); /* Muestra 3 productos al mismo tiempo */
+  flex: 1 0 calc(100% / 4); 
   box-sizing: border-box;
   padding: 10px;
 }

@@ -16,19 +16,27 @@ const Footer = () => {
         <div className="social-media">
           <h3>Síguenos en:</h3>
           <div className="social-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook.png" alt="Facebook" />
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i className="fab fa-facebook-f"></i>
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" alt="Twitter" />
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <i className="fab fa-twitter"></i>
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram" />
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i className="fab fa-instagram"></i>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn" />
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i className="fab fa-linkedin-in"></i>
             </a>
           </div>
+        </div>
+
+        <div className="additional-links">
+          <h3>Enlaces</h3>
+          <ul>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#privacidad">Política de Privacidad</a></li>
+          </ul>
         </div>
       </div>
 

@@ -1,46 +1,75 @@
 import React, { useState } from "react";
 import "./Products.css";
+import { useCart } from '../CartModal/CartGlobal';  // Importar el hook del carrito
+import ProductDetailsModal from './ProductDetailsModal';  // Importamos el nuevo modal
 
-const ProductCard = ({ id, title, imageProduct, price }) => {
+const ProductCard = ({ id, title, imageProduct, price, caracteristics }) => {
   const [selectedRating, setSelectedRating] = useState(null);
+  const { addToCart } = useCart();
+  const [isModalOpen, setIsModalOpen] = useState(false);  // Estado para el modal
 
-  // Función para manejar el cambio en la selección de estrellas
+  // Función para abrir el modal
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // Función para cerrar el modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const handleRatingChange = (event) => {
     setSelectedRating(event.target.value);
     console.log(`Producto: ${id}, Rating seleccionado: ${event.target.value}`);
   };
 
-  // Asegúrate de que el precio tenga un valor antes de aplicar toLocaleString
-  const formattedPrice = price
-    ? price.toLocaleString("en-US", { style: "currency", currency: "USD" })
-    : "Precio no disponible";
+
+
+  const product = { id, title, imageProduct, price, caracteristics }; // Datos del producto para el modal
 
   return (
-    <div className="product-card">
-      <img src={imageProduct} alt={title} />
-      <div className="w-product">
-        <p>Add to cart</p>
-      </div>
-      <h2>{title}</h2>
-      <p>{formattedPrice}</p>
+    <>
+      {/* Mostrar el modal solo si isModalOpen es true */}
+      {isModalOpen && (
+        <ProductDetailsModal
+          product={product}
+          onClose={closeModal}
+          onAddToCart={addToCart}
+        />
+      )}
 
-      {/* Renderización dinámica de las estrellas de calificación */}
-      <div className="rating">
-        {[5, 4, 3, 2, 1].map((star) => (
-          <React.Fragment key={star}>
-            <input
-              value={star}
-              name={`rate-${id}`}
-              id={`star${star}-${id}`}
-              type="radio"
-              onChange={handleRatingChange}
-              checked={selectedRating === `${star}`}
-            />
-            <label title={`${star} estrellas`} htmlFor={`star${star}-${id}`}></label>
-          </React.Fragment>
-        ))}
+      <div className="product-card" onClick={openModal}> {/* Abrir el modal al hacer clic en la tarjeta */}
+        <img src={imageProduct} alt={title} />
+        <div className="w-product">
+          <button
+            onClick={(e) => {
+              e.stopPropagation(); // Evitar que el clic en el botón abra el modal
+              addToCart({ id, title, price, imageProduct });
+            }}
+          >
+            Add to cart
+          </button>
+        </div>
+        <h2>{title}</h2>
+        <p><strong>Precio:</strong> ${parseFloat(price).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</p>
+        {/* Renderización de estrellas */}
+        <div className="rating">
+          {[5, 4, 3, 2, 1].map((star) => (
+            <React.Fragment key={star}>
+              <input
+                value={star}
+                name={`rate-${id}`}
+                id={`star${star}-${id}`}
+                type="radio"
+                onChange={handleRatingChange}
+                checked={selectedRating === `${star}`}
+              />
+              <label title={`${star} estrellas`} htmlFor={`star${star}-${id}`}></label>
+            </React.Fragment>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
